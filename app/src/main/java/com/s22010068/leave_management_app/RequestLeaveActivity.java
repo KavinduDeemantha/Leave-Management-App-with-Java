@@ -97,8 +97,8 @@ public class RequestLeaveActivity extends AppCompatActivity implements LightSens
 
                 Cursor cursor = myDB.getLeaveDetails(leaveNo);
                 if (cursor != null && cursor.moveToFirst()) {
-                    String leaveDate = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_2));
-                    String reason = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_3));
+                    String leaveDate = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_3));
+                    String reason = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_4));
                     Intent viewLeaveIntent = new Intent(RequestLeaveActivity.this, ViewActivity.class);
                     viewLeaveIntent.putExtra("leaveNo", leaveNo);
                     viewLeaveIntent.putExtra("leaveDate", leaveDate);
