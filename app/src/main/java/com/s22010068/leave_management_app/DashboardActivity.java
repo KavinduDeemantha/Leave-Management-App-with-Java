@@ -36,7 +36,6 @@ public class DashboardActivity extends AppCompatActivity implements LightSensorM
         super.onResume();
         lightSensorManager.start();
         updateLeaveCount();
-        updateLeaveCountAfterDelete();
     }
 
     @Override
@@ -57,23 +56,17 @@ public class DashboardActivity extends AppCompatActivity implements LightSensorM
     }
     private void updateLeaveCount() {
         SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
-        int currentLeaveCount = sharedPreferences.getInt("leaveCount", 10); // Default to 10 if not set
+        int availableLeaves = sharedPreferences.getInt("leaveCount", 0); // Default to 0 if not set
         TextView leaveCountTextView = findViewById(R.id.leaveCount);
-        leaveCountTextView.setText(String.valueOf(currentLeaveCount));
+        leaveCountTextView.setText(String.valueOf(availableLeaves));
     }
 
     private void initializeLeaveCount() {
         SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
         if (!sharedPreferences.contains("leaveCount")) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("leaveCount", 10); // Initial leave count
+            editor.putInt("leaveCount", 10); // Maximum leaves user can take is 10
             editor.apply();
         }
-    }
-    private void updateLeaveCountAfterDelete() {
-        SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
-        int leaveCount = sharedPreferences.getInt("leaveCount", 0);
-        TextView leaveCountTextView = findViewById(R.id.leaveCount);
-        leaveCountTextView.setText(String.valueOf(leaveCount));
     }
 }

@@ -53,10 +53,10 @@ public class RequestLeaveActivity extends AppCompatActivity implements LightSens
             @Override
             public void onClick(View v) {
                 SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
-                int currentLeaveCount = sharedPreferences.getInt("leaveCount", 0);
+                int availableLeaves = sharedPreferences.getInt("leaveCount", 0);
 
-                if (currentLeaveCount >= 10) {
-                    Toast.makeText(RequestLeaveActivity.this, "Maximum leave count reached. You cannot request more than 10 leaves.", Toast.LENGTH_LONG).show();
+                if (availableLeaves == 0) {
+                    Toast.makeText(RequestLeaveActivity.this, "Maximum leave count reached. You cannot request more than 10 leaves", Toast.LENGTH_LONG).show();
                     return;
                 }
                 String leaveNo = enterLeaveNo.getText().toString();
@@ -97,8 +97,8 @@ public class RequestLeaveActivity extends AppCompatActivity implements LightSens
 
                 Cursor cursor = myDB.getLeaveDetails(leaveNo);
                 if (cursor != null && cursor.moveToFirst()) {
-                    String leaveDate = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_2));
-                    String reason = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_3));
+                    String leaveDate = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_3));
+                    String reason = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COL_4));
                     Intent viewLeaveIntent = new Intent(RequestLeaveActivity.this, ViewActivity.class);
                     viewLeaveIntent.putExtra("leaveNo", leaveNo);
                     viewLeaveIntent.putExtra("leaveDate", leaveDate);

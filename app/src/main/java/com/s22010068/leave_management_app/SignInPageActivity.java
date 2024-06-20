@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat;
 public class SignInPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
     private DatabaseHelper databaseHelper;
-    private EditText editTextUsername, editTextPassword;
+    private EditText editTextUsername, editTextPassword, usernameEditText, passwordEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +25,8 @@ public class SignInPageActivity extends AppCompatActivity implements LightSensor
         lightSensorManager = new LightSensorManager(this, this);
         databaseHelper = new DatabaseHelper(this);
 
-        EditText usernameEditText = findViewById(R.id.editTextUsername);
-        EditText passwordEditText = findViewById(R.id.editTextPassword);
+        usernameEditText = findViewById(R.id.editTextUsername);
+        passwordEditText = findViewById(R.id.editTextPassword);
 
         Button sign_in_Btn = findViewById(R.id.signInBtn);
         sign_in_Btn.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,9 @@ public class SignInPageActivity extends AppCompatActivity implements LightSensor
                     Intent signInIntent = new Intent(SignInPageActivity.this, DashboardActivity.class);
                     startActivity(signInIntent);
                     finish();
-                } else {
+                } else if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(SignInPageActivity.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                } else{
                     Toast.makeText(SignInPageActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }
             }
