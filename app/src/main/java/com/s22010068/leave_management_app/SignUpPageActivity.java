@@ -13,7 +13,8 @@ import androidx.core.content.ContextCompat;
 
 public class SignUpPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
-    private DatabaseHelper databaseHelper;
+//    private DatabaseHelper databaseHelper;
+    private UserManager userManager;
     private EditText employeeNoText, usernameText, passwordText;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,24 +22,25 @@ public class SignUpPageActivity extends AppCompatActivity implements LightSensor
         setContentView(R.layout.signup);
 
         lightSensorManager = new LightSensorManager(this, this);
-        databaseHelper = new DatabaseHelper(this);
+//        databaseHelper = new DatabaseHelper(this);
+        userManager = new UserManager(this);
 
-        EditText employeeNoEditText = findViewById(R.id.employeeNoText);
-        EditText usernameEditText = findViewById(R.id.usernameText);
-        EditText passwordEditText = findViewById(R.id.passwordText);
+        employeeNoText = findViewById(R.id.employeeNoText);
+        usernameText = findViewById(R.id.usernameText);
+        passwordText = findViewById(R.id.passwordText);
 
         Button sign_up_Btn = findViewById(R.id.sign_up_btn);
         sign_up_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String employeeNo = employeeNoEditText.getText().toString();
-                String username = usernameEditText.getText().toString();
-                String password = passwordEditText.getText().toString();
+                String employeeNo = employeeNoText.getText().toString();
+                String username = usernameText.getText().toString();
+                String password = passwordText.getText().toString();
 
                 if (username.isEmpty() || password.isEmpty() || employeeNo.isEmpty()) {
                     Toast.makeText(SignUpPageActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
-                    boolean isInserted = databaseHelper.insertUser(employeeNo, username, password);
+                    boolean isInserted = userManager.registerUser(employeeNo, username, password);
                     if (isInserted) {
                         Toast.makeText(SignUpPageActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                         Intent signUpIntent = new Intent(SignUpPageActivity.this, SignInPageActivity.class);

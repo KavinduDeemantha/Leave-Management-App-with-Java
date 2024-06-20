@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class UserManager {
     private DatabaseHelper dbHelper;
@@ -13,13 +14,7 @@ public class UserManager {
     }
 
     public boolean registerUser(String employeeNo, String username, String password ) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseHelper.USER_COL_2, employeeNo);
-        contentValues.put(DatabaseHelper.USER_COL_3, username);
-        contentValues.put(DatabaseHelper.USER_COL_4, password);
-        long result = db.insert(DatabaseHelper.USERS_TABLE_NAME, null, contentValues);
-        return result != -1;
+        return dbHelper.insertUser(employeeNo, username, password);
     }
 
     public boolean authenticateUser(String username, String password) {

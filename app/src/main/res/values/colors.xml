@@ -2,8 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="backgroundColor">#EBF1A7</color>
-    <color name="headingColour">#544975</color>
-    <color name="btnColour">#301f97</color>
+    <color name="backgroundColor">#bbe9ff</color>
+    <color name="headingColour">#402e7a</color>
+    <color name="btnColour">#4c3bcf</color>
     <color name="inputTextColour">#e00916</color>
+    <color name="layoutColour1">#4b70f5</color>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/deletePageLayout"
@@ -20,45 +21,76 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        app:layout_constraintVertical_bias="0.143" />
 
-    <Button
-        android:id="@+id/yesBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="200dp"
-        android:height="60dp"
-        android:backgroundTint="@color/btnColour"
-        android:text="Yes"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="285dp"
+        android:layout_height="273dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.375"
+        android:src="@drawable/bin_img"
+        android:background="@drawable/circle"
+        android:clipToOutline="true"
+        android:gravity="center"/>
 
-    <Button
-        android:id="@+id/noBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="200dp"
-        android:height="60dp"
-        android:backgroundTint="@color/btnColour"
-        android:text="No"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="420dp"
+        android:layout_height="251dp"
+        android:background="@drawable/rounded_border"
+        android:backgroundTint="@color/layoutColour1"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintVertical_bias="1.0">
 
+        <Button
+            android:id="@+id/yesBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:height="60dp"
+            android:backgroundTint="@color/btnColour"
+            android:text="Yes"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.499" />
+
+        <Button
+            android:id="@+id/noBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="200dp"
+            android:height="60dp"
+            android:backgroundTint="@color/btnColour"
+            android:text="No"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.612" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
