@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat;
 public class SignInPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
     private DatabaseHelper databaseHelper;
-    private EditText editTextUsername, editTextPassword, usernameEditText, passwordEditText;
+    private EditText usernameEditText, passwordEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
