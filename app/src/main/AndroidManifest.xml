@@ -25,17 +25,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginPageActivity"></activity>
-        <activity android:name=".SignInPageActivity"
-            android:exported="true"></activity>
-        <activity android:name=".SignUpPageActivity"></activity>
-        <activity android:name=".DashboardActivity"></activity>
-        <activity android:name=".RequestLeaveActivity"></activity>
-        <activity android:name=".ViewActivity"></activity>
-        <activity android:name=".EditActivity"></activity>
-        <activity android:name=".DeleteActivity"></activity>
-        <activity android:name=".LeaveDeletedActivity"></activity>
-        <activity android:name=".MapFragment"></activity>
+        <activity android:name=".LoginPageActivity" />
+        <activity android:name=".SignInPageActivity" android:exported="true" />
+        <activity android:name=".SignUpPageActivity" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".RequestLeaveActivity" />
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".EditActivity" />
+        <activity android:name=".DeleteActivity" />
+        <activity android:name=".LeaveDeletedActivity" />
+        <activity android:name=".MapFragment" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/api_key"/>

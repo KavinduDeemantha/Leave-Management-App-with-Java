@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 
 public class DashboardActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
+    private SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
@@ -21,8 +22,10 @@ public class DashboardActivity extends AppCompatActivity implements LightSensorM
         initializeLeaveCount();
 
         lightSensorManager = new LightSensorManager(this, this);
+        sessionManager = new SessionManager(this);
 
         ImageButton addLeaveBtn = findViewById(R.id.add_leave_btn);
+        Button logOutBtn = findViewById(R.id.logOutBtn);
         addLeaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,6 +33,16 @@ public class DashboardActivity extends AppCompatActivity implements LightSensorM
                 startActivity(addLeaveIntent);
             }
         });
+        logOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionManager.logoutUser();
+                Intent logOutIntent = new Intent(DashboardActivity.this, FirstPageActivity.class);
+                startActivity(logOutIntent);
+                finish();
+            }
+        });
+
         updateLeaveCount();
     }
     protected void onResume() {
