@@ -1,6 +1,7 @@
 package com.s22010068.leave_management_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -31,12 +32,15 @@ public class DeleteActivity extends AppCompatActivity implements LightSensorMana
             public void onClick(View view) {
                 boolean isDeleted = myDB.deleteData(leaveNo);
                 if (isDeleted) {
-                    Toast.makeText(DeleteActivity.this, "Data deleted", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(DeleteActivity.this, LeaveDeletedActivity.class);
-                    startActivity(intent);
+                    Toast.makeText(DeleteActivity.this, "Leave deleted", Toast.LENGTH_LONG).show();
+                    increaseLeaveCount(); // Increase leave count by 1
+
+                    // Navigate to DeleteActivity
+                    Intent leaveDeletedintent = new Intent(DeleteActivity.this, LeaveDeletedActivity.class);
+                    startActivity(leaveDeletedintent);
                     finish();
                 } else {
-                    Toast.makeText(DeleteActivity.this, "Data not deleted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(DeleteActivity.this, "No leave found with that Leave NO", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -62,6 +66,16 @@ public class DeleteActivity extends AppCompatActivity implements LightSensorMana
     protected void onPause() {
         super.onPause();
         lightSensorManager.stop();
+    }
+
+    private void increaseLeaveCount() {
+        SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
+        int currentLeaveCount = sharedPreferences.getInt("leaveCount", 0);
+        if (currentLeaveCount < 10) { // Prevent increasing beyond 10
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("leaveCount", currentLeaveCount + 1);
+            editor.apply();
+        }
     }
 
     @Override

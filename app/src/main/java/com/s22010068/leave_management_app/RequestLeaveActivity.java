@@ -143,20 +143,10 @@ public class RequestLeaveActivity extends AppCompatActivity implements LightSens
                 if (leaveNo.isEmpty()) {
                     Toast.makeText(RequestLeaveActivity.this, "Please enter Leave NO", Toast.LENGTH_LONG).show();
                     return;
-                }
-
-                // Delete the leave from the database
-                boolean isDeleted = myDB.deleteData(leaveNo);
-                if (isDeleted) {
-                    Toast.makeText(RequestLeaveActivity.this, "Leave deleted", Toast.LENGTH_LONG).show();
-                    increaseLeaveCount(); // Increase leave count by 1
-
-                    // Navigate back to DashboardActivity
-                    Intent dashboardIntent = new Intent(RequestLeaveActivity.this, DashboardActivity.class);
-                    startActivity(dashboardIntent);
-                    finish();
-                } else {
-                    Toast.makeText(RequestLeaveActivity.this, "No leave found with that Leave NO", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent deleteIntent = new Intent(RequestLeaveActivity.this, DeleteActivity.class);
+                    deleteIntent.putExtra("leaveNo", leaveNo);
+                    startActivity(deleteIntent);
                 }
             }
         });
