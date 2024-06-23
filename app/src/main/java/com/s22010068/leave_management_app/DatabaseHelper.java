@@ -93,8 +93,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean updateData(String leaveNo, String newLeaveDate, String newReason) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, newLeaveDate);
-        contentValues.put(COL_3, newReason);
+        contentValues.put(COL_3, newLeaveDate);
+        contentValues.put(COL_4, newReason);
 
         int result = -1;
         try {
