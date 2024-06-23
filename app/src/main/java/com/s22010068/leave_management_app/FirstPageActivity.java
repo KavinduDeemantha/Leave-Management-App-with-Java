@@ -12,20 +12,10 @@ import android.widget.Button;
 
 public class FirstPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
-    private SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.firstpage);
-
-        sessionManager = new SessionManager(this);
-
-//        boolean isLoggedIn = checkUserLoginStatus();
-//        if (!isLoggedIn || isLoggedIn) {
-//            Intent intent = new Intent(this, FirstPageActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
 
         lightSensorManager = new LightSensorManager(this, this);
 
@@ -38,11 +28,6 @@ public class FirstPageActivity extends AppCompatActivity implements LightSensorM
             }
         });
     }
-
-//    private boolean checkUserLoginStatus() {
-//        return sessionManager.isLoggedIn();
-//    }
-
     protected void onResume() {
         super.onResume();
         lightSensorManager.start();

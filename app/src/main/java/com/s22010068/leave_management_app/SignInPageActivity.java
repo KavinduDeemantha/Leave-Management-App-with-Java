@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat;
 public class SignInPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
     private LightSensorManager lightSensorManager;
     private DatabaseHelper databaseHelper;
+    private SessionManager sessionManager;
     private EditText usernameEditText, passwordEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class SignInPageActivity extends AppCompatActivity implements LightSensor
 
         lightSensorManager = new LightSensorManager(this, this);
         databaseHelper = new DatabaseHelper(this);
+        sessionManager = new SessionManager(this);
 
         usernameEditText = findViewById(R.id.editTextUsername);
         passwordEditText = findViewById(R.id.editTextPassword);
@@ -39,6 +41,7 @@ public class SignInPageActivity extends AppCompatActivity implements LightSensor
                     SharedPreferences.Editor editor = sharedPref.edit();
                     editor.putString("username", username);
                     editor.apply();
+                    sessionManager.createLoginSession(username);
 
                     Intent signInIntent = new Intent(SignInPageActivity.this, DashboardActivity.class);
                     startActivity(signInIntent);
