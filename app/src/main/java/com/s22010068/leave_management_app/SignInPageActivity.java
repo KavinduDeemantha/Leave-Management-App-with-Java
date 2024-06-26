@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -69,8 +70,16 @@ public class SignInPageActivity extends AppCompatActivity implements LightSensor
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView username = findViewById(R.id.username);
+        TextView password = findViewById(R.id.password);
+        EditText editTextUsername = findViewById(R.id.editTextUsername);
+        EditText editTextPassword = findViewById(R.id.editTextPassword);
         if (lux < 1000) {
             findViewById(R.id.signInPageLayout).setBackgroundColor(Color.BLACK);
+            username.setTextColor(Color.WHITE);
+            password.setTextColor(Color.WHITE);
+            editTextUsername.setTextColor(Color.YELLOW);
+            editTextPassword.setTextColor(Color.YELLOW);
         } else {
             findViewById(R.id.signInPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

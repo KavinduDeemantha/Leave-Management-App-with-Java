@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -42,8 +43,10 @@ public class LeaveDeletedActivity extends AppCompatActivity implements LightSens
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView leave_deleted = findViewById(R.id.leave_deleted);
         if (lux < 1000) {
             findViewById(R.id.leaveDeletedPageLayout).setBackgroundColor(Color.BLACK);
+            leave_deleted.setTextColor(Color.WHITE);
         } else {
             findViewById(R.id.leaveDeletedPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

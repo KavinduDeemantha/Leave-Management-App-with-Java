@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.168">
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/viewLeaveNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Leave NO : "
@@ -42,7 +42,7 @@
             android:textSize="28sp"/>
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/viewLeaveDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Leave Date : "
@@ -63,7 +63,7 @@
             android:textSize="28sp" />
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/viewLeaveReason"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reason : "

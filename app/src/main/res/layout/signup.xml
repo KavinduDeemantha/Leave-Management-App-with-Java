@@ -48,7 +48,7 @@
         app:layout_constraintVertical_bias="0.54" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/enter_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#80000000"
@@ -101,7 +101,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/enter_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#80000000"
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.536" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/employeeNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:shadowColor="#80000000"

@@ -64,8 +64,20 @@ public class ViewActivity extends AppCompatActivity implements LightSensorManage
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView viewLeaveNo = findViewById(R.id.viewLeaveNo);
+        TextView viewLeaveDate = findViewById(R.id.viewLeaveDate);
+        TextView viewLeaveReason = findViewById(R.id.viewLeaveReason);
+        TextView leaveNoText = findViewById(R.id.leaveNoText);
+        TextView leaveDateText = findViewById(R.id.leaveDateText);
+        TextView leaveReasonText = findViewById(R.id.leaveReasonText);
         if (lux < 1000) {
             findViewById(R.id.viewLeavePageLayout).setBackgroundColor(Color.BLACK);
+            viewLeaveNo.setTextColor(Color.WHITE);
+            viewLeaveDate.setTextColor(Color.WHITE);
+            viewLeaveReason.setTextColor(Color.WHITE);
+            leaveNoText.setTextColor(Color.YELLOW);
+            leaveDateText.setTextColor(Color.YELLOW);
+            leaveReasonText.setTextColor(Color.YELLOW);
         } else {
             findViewById(R.id.viewLeavePageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

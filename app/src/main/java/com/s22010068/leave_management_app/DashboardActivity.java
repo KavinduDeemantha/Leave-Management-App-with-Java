@@ -61,8 +61,10 @@ public class DashboardActivity extends AppCompatActivity implements LightSensorM
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView leave_count = findViewById(R.id.leaveCount);
         if (lux < 1000) {
             findViewById(R.id.dashboardPageLayout).setBackgroundColor(Color.BLACK);
+            leave_count.setTextColor(Color.WHITE);
         } else {
             findViewById(R.id.dashboardPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

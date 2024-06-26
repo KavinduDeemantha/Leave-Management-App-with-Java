@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -84,8 +85,10 @@ public class DeleteActivity extends AppCompatActivity implements LightSensorMana
     }
 
     private void adjustBrightness(float lux) {
+        TextView sure_delete = findViewById(R.id.topic);
         if (lux < 1000) {
             findViewById(R.id.deletePageLayout).setBackgroundColor(Color.BLACK);
+            sure_delete.setTextColor(Color.WHITE);
         } else {
             findViewById(R.id.deletePageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

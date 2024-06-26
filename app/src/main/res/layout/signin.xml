@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/background" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/password"
         android:layout_width="94dp"
         android:layout_height="26dp"
         android:shadowColor="#80000000"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/username"
         android:layout_width="97dp"
         android:layout_height="31dp"
         android:shadowColor="#80000000"

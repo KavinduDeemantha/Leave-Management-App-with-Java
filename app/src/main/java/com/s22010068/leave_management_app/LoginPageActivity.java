@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -50,8 +51,10 @@ public class LoginPageActivity extends AppCompatActivity implements LightSensorM
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView topic = findViewById(R.id.topic);
         if (lux < 1000) {
             findViewById(R.id.loginPageLayout).setBackgroundColor(Color.BLACK);
+            topic.setTextColor(Color.WHITE);
         } else {
             findViewById(R.id.loginPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

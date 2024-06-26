@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,8 +69,20 @@ public class SignUpPageActivity extends AppCompatActivity implements LightSensor
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView employeeNumber = findViewById(R.id.employeeNumber);
+        TextView enter_username = findViewById(R.id.enter_username);
+        TextView enter_pwd = findViewById(R.id.enter_pwd);
+        EditText employeeNoText = findViewById(R.id.employeeNoText);
+        EditText usernameText = findViewById(R.id.usernameText);
+        EditText passwordText = findViewById(R.id.passwordText);
         if (lux < 1000) {
             findViewById(R.id.signUpPageLayout).setBackgroundColor(Color.BLACK);
+            employeeNumber.setTextColor(Color.WHITE);
+            enter_username.setTextColor(Color.WHITE);
+            enter_pwd.setTextColor(Color.WHITE);
+            employeeNoText.setTextColor(Color.YELLOW);
+            usernameText.setTextColor(Color.YELLOW);
+            passwordText.setTextColor(Color.YELLOW);
         } else {
             findViewById(R.id.signUpPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

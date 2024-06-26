@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import android.widget.Button;
+import android.widget.TextView;
 
 
 public class FirstPageActivity extends AppCompatActivity implements LightSensorManager.LightSensorCallback {
@@ -43,8 +44,10 @@ public class FirstPageActivity extends AppCompatActivity implements LightSensorM
         adjustBrightness(lux);
     }
     private void adjustBrightness(float lux) {
+        TextView topic = findViewById(R.id.topic);
         if (lux < 1000) {
             findViewById(R.id.firstPageLayout).setBackgroundColor(Color.BLACK);
+            topic.setTextColor(Color.WHITE);
         } else {
             findViewById(R.id.firstPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }

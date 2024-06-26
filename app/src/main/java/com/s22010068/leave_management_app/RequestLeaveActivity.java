@@ -170,22 +170,26 @@ public class RequestLeaveActivity extends AppCompatActivity implements LightSens
     }
 
     private void adjustBrightness(float lux) {
+        TextView _leaveNo = findViewById(R.id._leaveNo);
+        TextView _leaveDate = findViewById(R.id._leaveDate);
+        TextView _leaveReason = findViewById(R.id._leaveReason);
+        EditText enter_leave_no = findViewById(R.id.enter_leave_no);
+        EditText enter_leave_date = findViewById(R.id.enter_leave_date);
+        EditText enter_reason = findViewById(R.id.enter_reason);
+        EditText edit_leave_no = findViewById(R.id.edit_leave_no);
         if (lux < 1000) {
             findViewById(R.id.requestLeavePageLayout).setBackgroundColor(Color.BLACK);
+            _leaveNo.setTextColor(Color.WHITE);
+            _leaveDate.setTextColor(Color.WHITE);
+            _leaveReason.setTextColor(Color.WHITE);
+            enter_leave_no.setTextColor(Color.YELLOW);
+            enter_leave_date.setTextColor(Color.YELLOW);
+            enter_reason.setTextColor(Color.YELLOW);
+            edit_leave_no.setTextColor(Color.YELLOW);
         } else {
             findViewById(R.id.requestLeavePageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }
     }
-    private void increaseLeaveCount() {
-        SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
-        int currentLeaveCount = sharedPreferences.getInt("leaveCount", 0);
-        if (currentLeaveCount < 10) { // Prevent increasing beyond 10
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("leaveCount", currentLeaveCount + 1);
-            editor.apply();
-        }
-    }
-
     private void decreaseLeaveCount() {
         SharedPreferences sharedPreferences = getSharedPreferences("LeavePrefs", MODE_PRIVATE);
         int currentLeaveCount = sharedPreferences.getInt("leaveCount", 0);

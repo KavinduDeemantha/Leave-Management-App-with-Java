@@ -8,7 +8,7 @@
     android:background="@color/backgroundColor">
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/leave_deleted"
         android:layout_width="343dp"
         android:layout_height="39dp"
         android:shadowColor="#80000000"

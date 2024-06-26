@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,8 +75,16 @@ public class EditActivity extends AppCompatActivity implements LightSensorManage
     }
 
     private void adjustBrightness(float lux) {
+        TextView leave_date = findViewById(R.id.leave_date);
+        TextView leave_reason = findViewById(R.id.leave_reason);
+        EditText LeaveDate = findViewById(R.id.LeaveDate);
+        EditText leaveReason = findViewById(R.id.leaveReason);
         if (lux < 1000) {
             findViewById(R.id.editPageLayout).setBackgroundColor(Color.BLACK);
+            leave_date.setTextColor(Color.WHITE);
+            leave_reason.setTextColor(Color.WHITE);
+            LeaveDate.setTextColor(Color.YELLOW);
+            leaveReason.setTextColor(Color.YELLOW);
         } else {
             findViewById(R.id.editPageLayout).setBackgroundColor(ContextCompat.getColor(this, R.color.backgroundColor));
         }
